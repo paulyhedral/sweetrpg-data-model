@@ -7,7 +7,7 @@ on:
             - model-core-published
             - db-published
     schedule:
-        - cron: "0 2 * * 0"
+        - cron: "30 2 * * 0"
     push:
         branches:
             - develop

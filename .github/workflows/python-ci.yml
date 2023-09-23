@@ -63,7 +63,7 @@ jobs:
             - uses: actions/checkout@v2
             - uses: actions/setup-python@v2
               with:
-                  python-version: "3.10"
+                  python-version: "3.11"
             - name: install-deps
               run: pip install -r requirements/docs.txt
             - name: make-docs
@@ -97,9 +97,7 @@ jobs:
             fail-fast: false
             matrix:
                 include:
-                    - repo: catalog-api
-                    - repo: catalog-data-processor
-                    - repo: catalog-web
+                    - repo: kv-api
                     - repo: client
                     - repo: main-web
                     - repo: shared-web
@@ -108,7 +106,7 @@ jobs:
             - name: Notify
               uses: juztcode/repo-ditpatch-action@v1
               with:
-                  event-type: catalog-objects-published
+                  event-type: kv-objects-published
                   token: ${{ secrets.REPO_ACCESS_TOKEN }}
                   repository: sweetrpg/${{ matrix.repo }}
 #            - name: dispatch-event
