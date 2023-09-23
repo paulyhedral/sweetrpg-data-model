@@ -10,6 +10,8 @@ from datetime import datetime
 store_json = """
 {
     "_id": "this-is-ignored",
+    "name": "test-store",
+    "description": "A store for testing",
     "created_at": "2021-09-13T07:55:00.001",
     "created_by": "test",
     "updated_at": "2021-09-13T07:55:00.001",
@@ -24,6 +26,8 @@ def test_store_from_json():
     a = Store(**j)
     assert isinstance(a, Store)
     assert a.id == "this-is-ignored"
+    assert a.name == "test-store"
+    assert a.description == "A store for testing"
     assert a.created_at == store_datetime
     assert a.created_by == "test"
     assert a.updated_at == store_datetime
