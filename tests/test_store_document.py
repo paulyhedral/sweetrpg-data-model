@@ -8,7 +8,7 @@ from datetime import datetime
 
 
 def test_store_document_setup():
-    c = StoreDocument(person_id="1", volume_id="1", roles=["developer"])
+    c = StoreDocument()
     assert c is not None
     # assert c.person_id == "1"
     # assert c.volume_id == "1"
