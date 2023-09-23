@@ -37,4 +37,4 @@ class StoreDocument(Document):
     updated_at = fields.DateTimeField(default=datetime.utcnow, required=True)
     updated_by = fields.StringField(default="system", required=True)
     deleted_at = fields.DateTimeField(null=True)
-    deleted_by = fields.StringField(default="system", required=True)
+    deleted_by = fields.StringField(null=True)
