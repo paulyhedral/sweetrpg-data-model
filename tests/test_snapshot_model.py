@@ -11,7 +11,6 @@ snapshot_json = """
 {
     "_id": "this-is-ignored",
     "name": "test-snapshot",
-    "description": "A snapshot for testing",
     "key_ids": ["1", "2"],
     "snapshot_ids": ["1", "2"],
     "current_snapshot_id": "1",
@@ -30,7 +29,6 @@ def test_snapshot_from_json():
     assert isinstance(a, Snapshot)
     assert a.id == "this-is-ignored"
     assert a.name == "test-snapshot"
-    assert a.description == "A snapshot for testing"
     assert a.key_ids == ["1", "2"]
     assert a.snapshot_ids == ["1", "2"]
     assert a.current_snapshot_id == "1"
