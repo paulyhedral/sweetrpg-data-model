@@ -7,18 +7,18 @@ import logging
 from sweetrpg_model_core.model.base import Model
 
 
-class Store(Model):
-    """A model object representing a key-value store."""
+class Key(Model):
+    """A model object representing a key-value store key."""
 
     def __init__(self, *args, **kwargs):
-        """Creates a new Store object."""
+        """Creates a new Key object."""
         logging.debug("args: %s, kwargs: %s", args, kwargs)
 
         super().__init__(*args, **kwargs)
 
         self.name = kwargs.get("name")
+        self.type = kwargs.get("type")
         self.description = kwargs.get("description")
         self.tags = kwargs.get("tags")
-        self.key_ids = kwargs.get("key_ids")
-        self.snapshot_ids = kwargs.get("snapshot_ids")
-        self.current_snapshot_id = kwargs.get("current_snapshot_id")
+        self.expression = kwargs.get("expression")
+        self.value_ids = kwargs.get("value_ids")

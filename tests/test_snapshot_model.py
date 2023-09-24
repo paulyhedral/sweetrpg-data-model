@@ -3,15 +3,15 @@ __author__ = "Paul Schifferer <dm@sweetrpg.com>"
 """
 """
 
-from sweetrpg_kv_objects.model.store import Store
+from sweetrpg_kv_objects.model.snapshot import Snapshot
 import json
 from datetime import datetime
 
-store_json = """
+snapshot_json = """
 {
     "_id": "this-is-ignored",
-    "name": "test-store",
-    "description": "A store for testing",
+    "name": "test-snapshot",
+    "description": "A snapshot for testing",
     "key_ids": ["1", "2"],
     "snapshot_ids": ["1", "2"],
     "current_snapshot_id": "1",
@@ -21,22 +21,22 @@ store_json = """
     "updated_by": "test"
 }
 """
-store_datetime = datetime(2021, 9, 13, 7, 55, 0, 1000)
+snapshot_datetime = datetime(2021, 9, 13, 7, 55, 0, 1000)
 
 
-def test_store_from_json():
-    j = json.loads(store_json)
-    a = Store(**j)
-    assert isinstance(a, Store)
+def test_snapshot_from_json():
+    j = json.loads(snapshot_json)
+    a = Snapshot(**j)
+    assert isinstance(a, Snapshot)
     assert a.id == "this-is-ignored"
-    assert a.name == "test-store"
-    assert a.description == "A store for testing"
+    assert a.name == "test-snapshot"
+    assert a.description == "A snapshot for testing"
     assert a.key_ids == ["1", "2"]
     assert a.snapshot_ids == ["1", "2"]
     assert a.current_snapshot_id == "1"
-    assert a.created_at == store_datetime
+    assert a.created_at == snapshot_datetime
     assert a.created_by == "test"
-    assert a.updated_at == store_datetime
+    assert a.updated_at == snapshot_datetime
     assert a.updated_by == "test"
     assert not hasattr(a, "deleted_at") or a.deleted_at is None
     assert not hasattr(a, "deleted_by") or a.deleted_by is None

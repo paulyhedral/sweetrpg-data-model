@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 __author__ = "Paul Schifferer <dm@sweetrpg.com>"
 """
-Store document for MongoDB.
+Snapshot document for MongoDB.
 """
 
 from datetime import datetime
@@ -10,29 +10,24 @@ from sweetrpg_kv_objects.db.embedded.property.document import PropertyDocument
 from sweetrpg_kv_objects.db.embedded.tag.document import TagDocument
 
 
-class StoreDocument(Document):
+class SnapshotDocument(Document):
     """
-    A mapping object to convert MongoDB data to a Store object.
+    A mapping object to convert MongoDB data to a Snapshot object.
     """
 
     meta = {
         "indexes": [
-            {"name": "store_name", "fields": ["name"]},
+            {"name": "snapshot_name", "fields": ["name"]},
         ],
         "db_alias": "default",
-        "collection": "stores",
+        "collection": "snapshots",
         "strict": False,
     }
 
-    source_id = fields.StringField()
-
     # basic properties
     name = fields.StringField(required=True)
-    description = fields.StringField(required=True)
     tags = fields.ListField(fields.EmbeddedDocumentField(TagDocument))
-    key = fields.ListField(fields.ReferenceField("KeyDocument"))
-    snapshots = fields.ListField(fields.ReferenceField("SnapshotDocument"))
-    current_snapshot = fields.ReferenceField("SnapshotDocument")
+    values = fields.ListField(fields.ReferenceField("ValueDocument"))
 
     # audit properties
     created_at = fields.DateTimeField(default=datetime.utcnow, required=True)

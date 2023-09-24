@@ -3,12 +3,12 @@ __author__ = "Paul Schifferer <dm@sweetrpg.com>"
 """
 """
 
-from sweetrpg_kv_objects.db.store.document import StoreDocument
+from sweetrpg_kv_objects.db.key.document import KeyDocument
 from datetime import datetime
 
 
-def test_store_document_setup():
-    s = StoreDocument()
+def test_key_document_setup():
+    s = KeyDocument()
     assert s is not None
     # assert s.person_id == "1"
     # assert s.volume_id == "1"
