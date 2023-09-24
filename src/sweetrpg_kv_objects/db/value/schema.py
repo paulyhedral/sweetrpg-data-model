@@ -12,9 +12,7 @@ from sweetrpg_model_core.schema.base import BaseSchema
 class ValueSchema(BaseSchema):
     model_class = Value
 
-    name = fields.String(required=True)  # , load_only=True)
-    description = fields.String(required=True)  # , load_only=True)
+    key = fields.String(required=True)  # , load_only=True)
+    value = fields.String(required=True)  # , load_only=True)
     tags = fields.List(fields.Dict(keys=fields.String(required=True), values=fields.String()))
-    key_ids = fields.List(fields.String(required=True))  # , load_only=True)
-    snapshot_ids = fields.List(fields.String(required=True))  # , load_only=True)
-    current_snapshot_id = fields.String(required=True)  # , load_only=True)
+    snapshot_id = fields.String(required=True)  # , load_only=True)
