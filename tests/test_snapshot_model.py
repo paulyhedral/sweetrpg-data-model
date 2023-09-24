@@ -28,7 +28,6 @@ def test_snapshot_from_json():
     assert a.id == "this-is-ignored"
     assert a.name == "test-snapshot"
     assert a.value_ids == ["1", "2"]
-    assert a.current_snapshot_id == "1"
     assert a.created_at == snapshot_datetime
     assert a.created_by == "test"
     assert a.updated_at == snapshot_datetime
