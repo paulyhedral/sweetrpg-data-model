@@ -11,7 +11,7 @@ event_json = """
 {
     "store": "test-store",
     "key": "test-key",
-    "occurred": "2021-09-13T07:55:00.001",
+    "occurred": "2021-09-13T07:55:00.001"
 }
 """
 event_datetime = datetime(2021, 9, 13, 7, 55, 0, 1000)
