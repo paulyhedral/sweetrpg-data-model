@@ -3,13 +3,14 @@ __author__ = "Paul Schifferer <dm@sweetrpg.com>"
 """
 """
 
-from sweetrpg_kv_objects.model.expression_event import ExpressionEvent
+from sweetrpg_kv_objects.events.expression import ExpressionEvent
 import json
 from datetime import datetime
 
 event_json = """
 {
     "store": "test-store",
+    "event": "test-event",
     "key": "test-key",
     "occurred": "2021-09-13T07:55:00.001"
 }
@@ -22,5 +23,6 @@ def test_event_from_json():
     a = ExpressionEvent(**j)
     assert isinstance(a, ExpressionEvent)
     assert a.store == "test-store"
+    assert a.event == "test-event"
     assert a.key == "test-key"
     assert a.occurred == event_datetime
