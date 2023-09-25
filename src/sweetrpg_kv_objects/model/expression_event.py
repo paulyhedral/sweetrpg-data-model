@@ -4,10 +4,10 @@ __author__ = "Paul Schifferer <dm@sweetrpg.com>"
 """
 
 import logging
-from sweetrpg_model_core.model.base import Model
+from sweetrpg_model_core.model.base import BaseModel
 
 
-class ExpressionEvent(Model):
+class ExpressionEvent(BaseModel):
     """A model object representing a change in a key's expression."""
 
     def __init__(self, *args, **kwargs):

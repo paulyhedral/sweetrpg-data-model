@@ -4,10 +4,10 @@ __author__ = "Paul Schifferer <dm@sweetrpg.com>"
 """
 
 import logging
-from sweetrpg_model_core.model.base import Model
+from sweetrpg_model_core.model.base import BaseModel
 
 
-class ValueEvent(Model):
+class ValueEvent(BaseModel):
     """A model object representing an event on a value."""
 
     def __init__(self, *args, **kwargs):
