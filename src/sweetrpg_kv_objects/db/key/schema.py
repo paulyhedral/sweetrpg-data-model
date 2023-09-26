@@ -13,8 +13,9 @@ class KeySchema(BaseSchema):
     model_class = Key
 
     name = fields.String(required=True)  # , load_only=True)
-    type = fields.String(required=True)  # , load_only=True)
     description = fields.String(required=True)  # , load_only=True)
     tags = fields.List(fields.Dict(keys=fields.String(required=True), values=fields.String()))
+    type = fields.String(required=True)  # , load_only=True)
+    encoding = fields.String(required=True)  # , load_only=True)
     expression = fields.String(required=True)  # , load_only=True)
     value_ids = fields.List(fields.String(required=True))  # , load_only=True)

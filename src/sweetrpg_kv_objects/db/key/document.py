@@ -8,6 +8,7 @@ from datetime import datetime
 from mongoengine import Document, fields
 from sweetrpg_kv_objects.db.embedded.property.document import PropertyDocument
 from sweetrpg_kv_objects.db.embedded.tag.document import TagDocument
+from sweetrpg_kv_objects import constants
 
 
 class KeyDocument(Document):
@@ -26,10 +27,12 @@ class KeyDocument(Document):
 
     # basic properties
     name = fields.StringField(required=True)
-    type = fields.StringField(required=True)
     description = fields.StringField(required=True)
-    expression = fields.StringField()
     tags = fields.ListField(fields.EmbeddedDocumentField(TagDocument))
+
+    type = fields.StringField(default=constants.KEY_TYPE_STRING, required=True)
+    encoding = fields.StringField(default=constants.KEY_ENCODING_PLAIN, required=True)
+    expression = fields.StringField(default="")
     values = fields.ListField(fields.ReferenceField("ValueDocument"))
 
     # audit properties

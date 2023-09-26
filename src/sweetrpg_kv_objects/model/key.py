@@ -18,6 +18,7 @@ class Key(Model):
 
         self.name = kwargs.get("name")
         self.type = kwargs.get("type")
+        self.encoding = kwargs.get("encoding")
         self.description = kwargs.get("description")
         self.tags = kwargs.get("tags")
         self.expression = kwargs.get("expression")

@@ -16,6 +16,7 @@ key_json = """
     "description": "A key for testing",
     "value_ids": ["1", "2"],
     "type": "integer",
+    "encoding": "plain",
     "expression": "",
     "created_at": "2021-09-13T07:55:00.001",
     "created_by": "test",
@@ -30,6 +31,7 @@ key_dict = {
     "description": "A key for testing",
     "value_ids": ["1", "2"],
     "type": "integer",
+    "encoding": "plain",
     "expression": "",
     "created_at": datetime(2021, 9, 15, 7, 35, 0, 2000),
     "created_by": "test",
@@ -51,6 +53,7 @@ def test_load_key_from_json():
     assert a.description == "A key for testing"
     assert a.value_ids == ["1", "2"]
     assert a.type == "integer"
+    assert a.encoding == "plain"
     assert a.expression == ""
     assert a.created_at == key_datetime
     assert a.created_by == "test"
@@ -70,6 +73,7 @@ def test_load_key_from_dict():
     assert a.description == "A key for testing"
     assert a.value_ids == ["1", "2"]
     assert a.type == "integer"
+    assert a.encoding == "plain"
     assert a.expression == ""
     assert a.created_at == datetime(2021, 9, 15, 7, 35, 0, 2000)
     assert a.created_by == "test"
