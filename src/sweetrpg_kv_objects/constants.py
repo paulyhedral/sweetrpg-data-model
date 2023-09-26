@@ -8,3 +8,4 @@ Constants.
 EVENT_EXPRESSION_CHANGED = "expression_changed"
 EVENT_RECALCULATE = "recalculate"
 EVENT_VALUE_CHANGED = "value_changed"
+EVENT_PING = "ping"
