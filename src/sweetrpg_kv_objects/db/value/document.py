@@ -17,7 +17,7 @@ class ValueDocument(Document):
 
     meta = {
         "indexes": [
-            {"name": "value_key_snapshot", "fields": ["key", "snapshot"]},
+            {"name": "value_key_snapshot", "fields": ["key_id", "snapshot_id"]},
         ],
         "db_alias": "default",
         "collection": "values",
