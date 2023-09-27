@@ -24,10 +24,13 @@ class SnapshotDocument(Document):
         "strict": False,
     }
 
+    # references
+    store = fields.ReferenceField("StoreDocument")
+
     # basic properties
     name = fields.StringField(required=True)
     tags = fields.ListField(fields.EmbeddedDocumentField(TagDocument))
-    values = fields.ListField(fields.ReferenceField("ValueDocument"))
+    # values = fields.ListField(fields.ReferenceField("ValueDocument"))
 
     # audit properties
     created_at = fields.DateTimeField(default=datetime.utcnow, required=True)

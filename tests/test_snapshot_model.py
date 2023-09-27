@@ -10,8 +10,8 @@ from datetime import datetime
 snapshot_json = """
 {
     "_id": "this-is-ignored",
+    "store_id": "1",
     "name": "test-snapshot",
-    "value_ids": ["1", "2"],
     "created_at": "2021-09-13T07:55:00.001",
     "created_by": "test",
     "updated_at": "2021-09-13T07:55:00.001",
@@ -26,8 +26,8 @@ def test_snapshot_from_json():
     a = Snapshot(**j)
     assert isinstance(a, Snapshot)
     assert a.id == "this-is-ignored"
+    assert a.store_id == "1"
     assert a.name == "test-snapshot"
-    assert a.value_ids == ["1", "2"]
     assert a.created_at == snapshot_datetime
     assert a.created_by == "test"
     assert a.updated_at == snapshot_datetime

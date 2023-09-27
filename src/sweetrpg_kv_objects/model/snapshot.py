@@ -16,6 +16,9 @@ class Snapshot(Model):
 
         super().__init__(*args, **kwargs)
 
+        self.store_id = kwargs.get("store_id")
+
         self.name = kwargs.get("name")
+
         self.tags = kwargs.get("tags")
-        self.value_ids = kwargs.get("value_ids")
+        # self.value_ids = kwargs.get("value_ids")

@@ -12,9 +12,9 @@ from datetime import datetime
 key_json = """
 {
     "_id": "this-is-ignored",
+    "store_id": "1",
     "name": "test-key",
     "description": "A key for testing",
-    "value_ids": ["1", "2"],
     "type": "integer",
     "encoding": "plain",
     "expression": "",
@@ -27,9 +27,9 @@ key_json = """
 key_datetime = datetime(2021, 9, 13, 7, 55, 0, 1000)
 key_dict = {
     "_id": "another-id",
+    "store_id": "1",
     "name": "test-key",
     "description": "A key for testing",
-    "value_ids": ["1", "2"],
     "type": "integer",
     "encoding": "plain",
     "expression": "",
@@ -49,9 +49,9 @@ def test_load_key_from_json():
     assert a is not None
     assert isinstance(a, Key)
     assert a.id == "this-is-ignored"
+    assert a.store_id == "1"
     assert a.name == "test-key"
     assert a.description == "A key for testing"
-    assert a.value_ids == ["1", "2"]
     assert a.type == "integer"
     assert a.encoding == "plain"
     assert a.expression == ""
@@ -69,9 +69,9 @@ def test_load_key_from_dict():
     assert a is not None
     assert isinstance(a, Key)
     assert a.id == "another-id"
+    assert a.store_id == "1"
     assert a.name == "test-key"
     assert a.description == "A key for testing"
-    assert a.value_ids == ["1", "2"]
     assert a.type == "integer"
     assert a.encoding == "plain"
     assert a.expression == ""

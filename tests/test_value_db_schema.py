@@ -12,6 +12,7 @@ from datetime import datetime
 value_json = """
 {
     "_id": "this-is-ignored",
+    "store_id": "99",
     "key_id": "1",
     "snapshot_id": "2",
     "value": "3",
@@ -24,6 +25,7 @@ value_json = """
 value_datetime = datetime(2021, 9, 13, 7, 55, 0, 1000)
 value_dict = {
     "_id": "another-id",
+    "store_id": "99",
     "key_id": "1",
     "snapshot_id": "2",
     "value": "3",
@@ -43,6 +45,7 @@ def test_load_value_from_json():
     assert a is not None
     assert isinstance(a, Value)
     assert a.id == "this-is-ignored"
+    assert a.store_id == "99"
     assert a.key_id == "1"
     assert a.snapshot_id == "2"
     assert a.value == "3"
@@ -60,6 +63,7 @@ def test_load_value_from_dict():
     assert a is not None
     assert isinstance(a, Value)
     assert a.id == "another-id"
+    assert a.store_id == "99"
     assert a.key_id == "1"
     assert a.snapshot_id == "2"
     assert a.value == "3"

@@ -10,10 +10,10 @@ from datetime import datetime
 key_json = """
 {
     "_id": "this-is-ignored",
+    "store_id": "1",
     "name": "test-key",
     "description": "A key for testing",
-    "value_ids": ["1", "2"],
-    "type": "integer",
+    "type": "number",
     "encoding": "plain",
     "expression": "",
     "created_at": "2021-09-13T07:55:00.001",
@@ -30,10 +30,10 @@ def test_key_from_json():
     a = Key(**j)
     assert isinstance(a, Key)
     assert a.id == "this-is-ignored"
+    assert a.store_id == "1"
     assert a.name == "test-key"
     assert a.description == "A key for testing"
-    assert a.value_ids == ["1", "2"]
-    assert a.type == "integer"
+    assert a.type == "number"
     assert a.encoding == "plain"
     assert a.expression == ""
     assert a.created_at == key_datetime

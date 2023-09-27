@@ -16,7 +16,10 @@ class Value(Model):
 
         super().__init__(*args, **kwargs)
 
+        self.store_id = kwargs.get("store_id")
         self.key_id = kwargs.get("key_id")
         self.snapshot_id = kwargs.get("snapshot_id")
+
         self.value = kwargs.get("value")
+
         self.tags = kwargs.get("tags")

@@ -18,7 +18,9 @@ class Store(Model):
 
         self.name = kwargs.get("name")
         self.description = kwargs.get("description")
-        self.tags = kwargs.get("tags")
-        self.key_ids = kwargs.get("key_ids")
-        self.snapshot_ids = kwargs.get("snapshot_ids")
+
         self.current_snapshot_id = kwargs.get("current_snapshot_id")
+
+        self.tags = kwargs.get("tags")
+        # self.key_ids = kwargs.get("key_ids")
+        # self.snapshot_ids = kwargs.get("snapshot_ids")

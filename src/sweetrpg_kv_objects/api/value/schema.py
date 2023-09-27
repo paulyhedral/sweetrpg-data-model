@@ -18,7 +18,10 @@ class ValueAPISchema(BaseAPISchema):
         self_view_kwargs = {"id": "<id>"}
         self_view_many = "value_list"
 
-    value = fields.String(required=True)  # , load_only=True)
-    tags = fields.List(fields.Dict(keys=fields.String(required=True), values=fields.String()))
+    store_id = fields.String(required=True)  # , load_only=True)
     key_id = fields.String(required=True)  # , load_only=True)
     snapshot_id = fields.String(required=True)  # , load_only=True)
+
+    value = fields.String(required=True)  # , load_only=True)
+
+    tags = fields.List(fields.Dict(keys=fields.String(required=True), values=fields.String()))

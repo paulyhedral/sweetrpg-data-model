@@ -27,10 +27,12 @@ class StoreDocument(Document):
     # basic properties
     name = fields.StringField(required=True)
     description = fields.StringField(required=True)
-    tags = fields.ListField(fields.EmbeddedDocumentField(TagDocument))
-    keys = fields.ListField(fields.ReferenceField("KeyDocument"))
-    snapshots = fields.ListField(fields.ReferenceField("SnapshotDocument"))
     current_snapshot = fields.ReferenceField("SnapshotDocument")
+
+    # other properties
+    tags = fields.ListField(fields.EmbeddedDocumentField(TagDocument))
+    # keys = fields.ListField(fields.ReferenceField("KeyDocument"))
+    # snapshots = fields.ListField(fields.ReferenceField("SnapshotDocument"))
 
     # audit properties
     created_at = fields.DateTimeField(default=datetime.utcnow, required=True)

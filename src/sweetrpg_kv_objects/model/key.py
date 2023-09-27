@@ -16,10 +16,14 @@ class Key(Model):
 
         super().__init__(*args, **kwargs)
 
+        self.store_id = kwargs.get("store_id")
+
         self.name = kwargs.get("name")
+        self.description = kwargs.get("description")
+
         self.type = kwargs.get("type")
         self.encoding = kwargs.get("encoding")
-        self.description = kwargs.get("description")
-        self.tags = kwargs.get("tags")
         self.expression = kwargs.get("expression")
-        self.value_ids = kwargs.get("value_ids")
+
+        self.tags = kwargs.get("tags")
+        # self.value_ids = kwargs.get("value_ids")

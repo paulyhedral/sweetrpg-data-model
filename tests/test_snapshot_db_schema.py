@@ -13,7 +13,7 @@ snapshot_json = """
 {
     "_id": "this-is-ignored",
     "name": "test-snapshot",
-    "value_ids": ["1", "2"],
+    "store_id": "1",
     "created_at": "2021-09-13T07:55:00.001",
     "created_by": "test",
     "updated_at": "2021-09-13T07:55:00.001",
@@ -24,7 +24,7 @@ snapshot_datetime = datetime(2021, 9, 13, 7, 55, 0, 1000)
 snapshot_dict = {
     "_id": "another-id",
     "name": "test-snapshot",
-    "value_ids": ["1", "2"],
+    "store_id": "1",
     "created_at": datetime(2021, 9, 15, 7, 35, 0, 2000),
     "created_by": "test",
     "updated_at": datetime(2021, 9, 15, 7, 35, 0, 2001),
@@ -41,8 +41,8 @@ def test_load_snapshot_from_json():
     assert a is not None
     assert isinstance(a, Snapshot)
     assert a.id == "this-is-ignored"
+    assert a.store_id == "1"
     assert a.name == "test-snapshot"
-    assert a.value_ids == ["1", "2"]
     assert a.created_at == snapshot_datetime
     assert a.created_by == "test"
     assert a.created_at == snapshot_datetime
@@ -57,8 +57,8 @@ def test_load_snapshot_from_dict():
     assert a is not None
     assert isinstance(a, Snapshot)
     assert a.id == "another-id"
+    assert a.store_id == "1"
     assert a.name == "test-snapshot"
-    assert a.value_ids == ["1", "2"]
     assert a.created_at == datetime(2021, 9, 15, 7, 35, 0, 2000)
     assert a.created_by == "test"
     assert a.updated_at == datetime(2021, 9, 15, 7, 35, 0, 2001)

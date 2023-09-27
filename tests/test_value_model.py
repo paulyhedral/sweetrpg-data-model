@@ -10,6 +10,7 @@ from datetime import datetime
 value_json = """
 {
     "_id": "this-is-ignored",
+    "store_id": "99",
     "key_id": "1",
     "snapshot_id": "2",
     "value": "3",
@@ -27,6 +28,7 @@ def test_value_from_json():
     a = Value(**j)
     assert isinstance(a, Value)
     assert a.id == "this-is-ignored"
+    assert a.store_id == "99"
     assert a.key_id == "1"
     assert a.snapshot_id == "2"
     assert a.value == "3"

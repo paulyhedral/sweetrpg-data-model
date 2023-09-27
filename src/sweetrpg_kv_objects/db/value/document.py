@@ -24,10 +24,15 @@ class ValueDocument(Document):
         "strict": False,
     }
 
-    # basic properties
+    # references
+    store = fields.ReferenceField("StoreDocument")
     key = fields.ReferenceField("KeyDocument")
     snapshot = fields.ReferenceField("SnapshotDocument")
+
+    # basic properties
     value = fields.StringField(required=True)
+
+    # other properties
     tags = fields.ListField(fields.EmbeddedDocumentField(TagDocument))
 
     # audit properties

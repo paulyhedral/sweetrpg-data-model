@@ -12,10 +12,14 @@ from sweetrpg_model_core.schema.base import BaseSchema
 class KeySchema(BaseSchema):
     model_class = Key
 
+    store_id = fields.String(required=True)
+
     name = fields.String(required=True)  # , load_only=True)
     description = fields.String(required=True)  # , load_only=True)
-    tags = fields.List(fields.Dict(keys=fields.String(required=True), values=fields.String()))
+
     type = fields.String(required=True)  # , load_only=True)
     encoding = fields.String(required=True)  # , load_only=True)
     expression = fields.String(required=True)  # , load_only=True)
-    value_ids = fields.List(fields.String(required=True))  # , load_only=True)
+
+    tags = fields.List(fields.Dict(keys=fields.String(required=True), values=fields.String()))
+    # value_ids = fields.List(fields.String(required=True))  # , load_only=True)

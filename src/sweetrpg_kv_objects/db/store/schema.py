@@ -14,7 +14,9 @@ class StoreSchema(BaseSchema):
 
     name = fields.String(required=True)  # , load_only=True)
     description = fields.String(required=True)  # , load_only=True)
-    tags = fields.List(fields.Dict(keys=fields.String(required=True), values=fields.String()))
-    key_ids = fields.List(fields.String(required=True))  # , load_only=True)
-    snapshot_ids = fields.List(fields.String(required=True))  # , load_only=True)
+
+    # key_ids = fields.List(fields.String(required=True))  # , load_only=True)
+    # snapshot_ids = fields.List(fields.String(required=True))  # , load_only=True)
     current_snapshot_id = fields.String(required=True)  # , load_only=True)
+
+    tags = fields.List(fields.Dict(keys=fields.String(required=True), values=fields.String()))

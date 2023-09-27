@@ -25,15 +25,21 @@ class KeyDocument(Document):
         "strict": False,
     }
 
+    # references
+    store = fields.ReferenceField("StoreDocument")
+
     # basic properties
     name = fields.StringField(required=True)
     description = fields.StringField(required=True)
-    tags = fields.ListField(fields.EmbeddedDocumentField(TagDocument))
 
     type = fields.StringField(default=constants.KEY_TYPE_STRING, required=True)
     encoding = fields.StringField(default=constants.KEY_ENCODING_PLAIN, required=True)
     expression = fields.StringField(default="")
-    values = fields.ListField(fields.ReferenceField("ValueDocument"))
+
+    # other properties
+    tags = fields.ListField(fields.EmbeddedDocumentField(TagDocument))
+
+    # values = fields.ListField(fields.ReferenceField("ValueDocument"))
 
     # audit properties
     created_at = fields.DateTimeField(default=datetime.utcnow, required=True)

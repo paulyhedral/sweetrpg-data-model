@@ -18,6 +18,9 @@ class SnapshotAPISchema(BaseAPISchema):
         self_view_kwargs = {"id": "<id>"}
         self_view_many = "snapshot_list"
 
+    store_id = fields.String(required=True)  # , load_only=True)
+
     name = fields.String(required=True)  # , load_only=True)
+
     tags = fields.List(fields.Dict(keys=fields.String(required=True), values=fields.String()))
-    value_ids = fields.List(fields.String(required=True))  # , load_only=True)
+    # value_ids = fields.List(fields.String(required=True))  # , load_only=True)
