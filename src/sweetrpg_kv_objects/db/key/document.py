@@ -26,7 +26,7 @@ class KeyDocument(Document):
     }
 
     # references
-    store = fields.ReferenceField("StoreDocument")
+    store_id = fields.ReferenceField("StoreDocument")
 
     # basic properties
     name = fields.StringField(required=True)

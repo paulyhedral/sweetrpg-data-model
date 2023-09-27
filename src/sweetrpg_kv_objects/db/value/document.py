@@ -25,9 +25,9 @@ class ValueDocument(Document):
     }
 
     # references
-    store = fields.ReferenceField("StoreDocument")
-    key = fields.ReferenceField("KeyDocument")
-    snapshot = fields.ReferenceField("SnapshotDocument")
+    store_id = fields.ReferenceField("StoreDocument")
+    key_id = fields.ReferenceField("KeyDocument")
+    snapshot_id = fields.ReferenceField("SnapshotDocument")
 
     # basic properties
     value = fields.StringField(required=True)
