@@ -24,13 +24,11 @@ class StoreDocument(Document):
         "strict": False,
     }
 
-    source_id = fields.StringField()
-
     # basic properties
     name = fields.StringField(required=True)
     description = fields.StringField(required=True)
     tags = fields.ListField(fields.EmbeddedDocumentField(TagDocument))
-    key = fields.ListField(fields.ReferenceField("KeyDocument"))
+    keys = fields.ListField(fields.ReferenceField("KeyDocument"))
     snapshots = fields.ListField(fields.ReferenceField("SnapshotDocument"))
     current_snapshot = fields.ReferenceField("SnapshotDocument")
 
