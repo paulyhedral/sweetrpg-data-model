@@ -102,6 +102,9 @@ jobs:
                     - repo: main-web
                     - repo: shared-web
                     - repo: web-core
+                    - repo: kv-expression-processor
+                    - repo: kv-key-processor
+                    - repo: kv-value-calculator
         steps:
             - name: Notify
               uses: juztcode/repo-ditpatch-action@v1
