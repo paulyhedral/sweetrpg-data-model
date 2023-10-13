@@ -10,7 +10,7 @@ on:
         - cron: "30 2 * * 0"
     push:
         branches:
-            - develop
+            - python
         paths:
             - "requirements/*.in"
             - setup.py
