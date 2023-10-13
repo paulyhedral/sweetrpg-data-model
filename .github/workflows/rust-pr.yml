@@ -28,3 +28,7 @@ jobs:
               run: cargo fmt
             - name: tests
               run: cargo test
+            - name: coverage
+              uses: paambaati/codeclimate-action@v5.0.0
+              env:
+                CC_TEST_REPORTER_ID: 5e973b60767b2306b570ae43a2690cd0352801d8b6a0af5eb1b777672c5bab0a
