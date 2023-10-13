@@ -1,0 +1,31 @@
+name: PR
+
+on:
+    pull_request:
+        branches: [rust]
+        paths:
+            - "src/**"
+            - "tests/**"
+            - "docs/**"
+
+jobs:
+    tests:
+        name: ${{ matrix.name }}
+        runs-on: ${{ matrix.os }}
+        strategy:
+            fail-fast: false
+            matrix:
+                include:
+                    - {
+                          name: Linux,
+                          rust: "1.73.0",
+                          os: ubuntu-latest,
+                      }
+        steps:
+            - uses: actions/checkout@v2
+            - name: install-utils
+              run: echo "hello"
+            - name: lint
+              run: cargo fmt
+            - name: tests
+              run: cargo test -e ${{ matrix.tox }}
