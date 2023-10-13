@@ -32,7 +32,7 @@ jobs:
               run: echo "hello"
             - name: tests
               run: |
-                  cargo test -e ${{ matrix.tox }}
+                  cargo test
 
     docs:
         needs: [tests]

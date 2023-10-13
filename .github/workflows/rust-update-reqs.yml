@@ -21,11 +21,11 @@ jobs:
             - uses: actions/checkout@v2
             - name: update-reqs
               run: |
-                  pip install -U wheel setuptools pip-tools
+                  #pip install -U wheel setuptools pip-tools
                   git config --global user.email "ci@sweetrpg.com"
                   git config --global user.name "SweetRPG Requirement Updater"
                   git checkout ${{ github.head_ref || github.ref_name }}
-                  scripts/update-requirements.sh
-                  git add requirements/*.txt
-                  git commit -m "Update requirements"
-                  git push origin
+                  #scripts/update-requirements.sh
+                  #git add requirements/*.txt
+                  #git commit -m "Update requirements"
+                  #git push origin
