@@ -18,14 +18,15 @@ jobs:
     update-reqs:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
+            - name: install-toolchain
+              run: rustup update stable && rustup default stable
             - name: update-reqs
               run: |
-                  #pip install -U wheel setuptools pip-tools
                   git config --global user.email "ci@sweetrpg.com"
                   git config --global user.name "SweetRPG Requirement Updater"
                   git checkout ${{ github.head_ref || github.ref_name }}
-                  #scripts/update-requirements.sh
-                  #git add requirements/*.txt
-                  #git commit -m "Update requirements"
-                  #git push origin
+                  cargo update --verbose
+                  git add Cargo.*
+                  git commit -m "Update Cargo.lock"
+                  git push origin

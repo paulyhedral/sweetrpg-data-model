@@ -5,29 +5,31 @@ on:
         branches: [rust]
         paths:
             - "src/**"
-            - "docs/**"
+            - "tests/**"
+            - "benches/**"
+            - "examples/**"
 
 jobs:
     tests:
-        name: ${{ matrix.name }}
-        runs-on: ${{ matrix.os }}
+        name: Linux
+        runs-on: ubuntu-latest
         strategy:
             fail-fast: false
             matrix:
-                include:
-                    - {
-                          name: Linux,
-                          rust: "1.73.0",
-                          os: ubuntu-latest,
-                      }
+                toolchain:
+                    - stable
+                    - beta
+                    - nightly
         steps:
             - uses: actions/checkout@v3
-            - name: install-utils
-              run: echo "hello"
+            - name: install-toolchain
+              run: rustup update ${{ matrix.toolchain }} && rustup default ${{ matrix.toolchain }}
+            - name: build
+              run: cargo build --verbose
             - name: lint
-              run: cargo fmt
+              run: cargo check --verbose
             - name: tests
-              run: cargo test
+              run: cargo test --verbose
             - name: coverage
               uses: paambaati/codeclimate-action@v5.0.0
               env:
