@@ -126,11 +126,9 @@ dmypy.json
 .pyre/
 .DS_Store
 
-
 # Added by cargo
 
 /target
-
 
 # Added by cargo
 #
@@ -138,3 +136,6 @@ dmypy.json
 
 #/target
 /Cargo.lock
+
+.idea/
+.vscode/
