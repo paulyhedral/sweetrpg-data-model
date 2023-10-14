@@ -12,6 +12,9 @@ on:
         workflows: ["Update Requirements"]
         types: [completed]
 
+env:
+    CARGO_TERM_COLOR: always
+
 jobs:
     tests:
         name: Linux

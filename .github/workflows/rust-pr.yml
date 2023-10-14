@@ -9,6 +9,9 @@ on:
             - "benches/**"
             - "examples/**"
 
+env:
+    CARGO_TERM_COLOR: always
+
 jobs:
     tests:
         name: Linux
