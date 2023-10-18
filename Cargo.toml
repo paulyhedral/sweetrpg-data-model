@@ -1,7 +1,7 @@
 [package]
 name = "sweetrpg-kv-objects"
 description = "Objects for the SweetRPG Key-value Store."
-homepage = "https://sweetrpg-kv-objects.github.com/"
+homepage = "https://sweetrpg.github.com/kv-objects/"
 authors = ["Paul Schifferer <paul@schifferers.net>"]
 documentation = "https://sweetrpg-kv-objects.github.com/"
 license-file = "LICENSE"
@@ -24,3 +24,4 @@ exclude = [
 futures = "0.3.28"
 mongodb = "2.7.0"
 serde = "1.0.189"
+sweetrpg-model-core = { path = "../model-core" }
