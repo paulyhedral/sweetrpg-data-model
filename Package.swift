@@ -11,14 +11,16 @@ let package = Package(
             name: "sweetrpg-kv-objects",
             targets: ["kvObjects"]),
     ],
-     dependencies: [
-         .package(url: "https://github.com/httpswift/swifter.git", .upToNextMajor(from: "1.4.5"))
-     ],
+    dependencies: [
+        .package(url: "https://github.com/httpswift/swifter.git", .upToNextMajor(from: "1.4.5")),
+        .package(url: "ssh://git@github.com/sweetrpg/model-core.git", .branch("swift")),
+    ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "kvObjects"  , dependencies: ["Swifter"]),
+            name: "kvObjects",
+            dependencies: ["Swifter", "sweetrpg-model-core"]),
         .testTarget(
             name: "kvObjectsTests",
             dependencies: ["kvObjects"]),
