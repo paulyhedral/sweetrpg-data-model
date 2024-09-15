@@ -82,7 +82,7 @@ jobs:
             id-token: write
             contents: write
         environment:
-            name: pypi
+            name: release
             url: https://pypi.org/p/sweetrpg-kv-objects
         steps:
             - uses: actions/checkout@v4
