@@ -101,7 +101,7 @@ jobs:
               with:
                   skip-existing: true
                   verbose: true
-                  # password: ${{ secrets.PYPI_TOKEN }}
+                  password: ${{ secrets.PYPI_TOKEN }}
             - name: Publish package distributions to GitHub Releases
               uses: python-semantic-release/upload-to-gh-release@v9.8.8
               if: steps.release.outputs.released == 'true'
