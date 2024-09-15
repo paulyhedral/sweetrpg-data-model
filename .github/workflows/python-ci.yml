@@ -78,17 +78,34 @@ jobs:
         needs: [build]
         runs-on: ubuntu-latest
         concurrency: python-publish
+        permissions:
+            id-token: write
+            contents: write
+        environment:
+            name: pypi
+            url: https://pypi.org/p/sweetrpg-kv-objects
         steps:
             - uses: actions/checkout@v4
               with:
                   fetch-depth: 0
-            - name: Publish
-              uses: relekang/python-semantic-release@v7.34.6
+            - name: Release
+              id: release
+              uses: python-semantic-release/python-semantic-release@v9.8.8
               with:
-                  additional_options: "--patch"
+                  root_options: "--patch"
                   github_token: ${{ secrets.GITHUB_TOKEN }}
-                  repository_username: __token__
-                  repository_password: ${{ secrets.PYPI_TOKEN }}
+            - name: Publish package distributions to PyPI
+              uses: pypa/gh-action-pypi-publish@release/v1
+              if: steps.release.outputs.released == 'true'
+              with:
+                  skip-existing: true
+                  verbose: true
+                  # password: ${{ secrets.PYPI_TOKEN }}
+            - name: Publish package distributions to GitHub Releases
+              uses: python-semantic-release/upload-to-gh-release@v9.8.8
+              if: steps.release.outputs.released == 'true'
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
 
     notify:
         needs: [publish]
