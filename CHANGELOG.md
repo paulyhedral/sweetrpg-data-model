@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.0.19 (2024-09-15)
+
+### Unknown
+
+* Merge ([`2da463f`](https://github.com/sweetrpg/kv-objects/commit/2da463fcd94a42dcc4e9fae816e0e6d01e92200c))
+
 ## v0.0.18 (2024-09-15)
 
 ### Unknown
