@@ -33,7 +33,7 @@ jobs:
                     # - { name: Windows, python: "3.10", os: windows-latest, tox: py310 }
                     # - { name: Mac, python: "3.10", os: macos-latest, tox: py310 }
         steps:
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v4
             - uses: actions/setup-python@v4
               with:
                   python-version: ${{ matrix.python }}
@@ -60,8 +60,8 @@ jobs:
         runs-on: ubuntu-latest
         concurrency: python-docs
         steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-python@v2
+            - uses: actions/checkout@v4
+            - uses: actions/setup-python@v4
               with:
                   python-version: "3.11"
             - name: install-deps
@@ -75,11 +75,11 @@ jobs:
                   publish_dir: ./docs/_build/html
 
     publish:
-        needs: [tests]
+        needs: [build]
         runs-on: ubuntu-latest
         concurrency: python-publish
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v4
               with:
                   fetch-depth: 0
             - name: Publish
