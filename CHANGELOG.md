@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.0.18 (2024-09-15)
+
+### Unknown
+
+* Add trusted publisher ([`3e3fe96`](https://github.com/sweetrpg/kv-objects/commit/3e3fe961c7c1af15361b275a01e899a4ad726598))
+
 ## v0.0.17 (2024-09-15)
 
 ### Unknown
