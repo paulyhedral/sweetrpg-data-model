@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.0.20 (2024-09-16)
+
+### Unknown
+
+* Packages dir ([`21d0193`](https://github.com/sweetrpg/kv-objects/commit/21d01931f9a52eb89edd71072f5408dd3944e9db))
+
 ## v0.0.19 (2024-09-15)
 
 ### Unknown
