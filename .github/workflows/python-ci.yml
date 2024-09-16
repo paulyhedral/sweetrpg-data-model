@@ -1,9 +1,11 @@
 name: Python CI
 
+concurrency: python-ci
+
 on:
     push:
         branches:
-            - python
+            - develop
         paths:
             - "src/**"
             - "tests/**"
@@ -20,7 +22,6 @@ jobs:
     build:
         name: ${{ matrix.name }}
         runs-on: ${{ matrix.os }}
-        concurrency: python-ci
         strategy:
             fail-fast: true
             matrix:
@@ -48,14 +49,16 @@ jobs:
                    python -m pip install -U pip
             - name: Get Pip cache dir
               id: pip_cache
-              run: echo "dir=$(pip cache dir)" >> $GITHUB_OUTPUT
+              run: |
+                   echo "dir=$(pip cache dir)" >> $GITHUB_OUTPUT
             - name: Cache Pip
               uses: actions/cache@v3
               with:
                   path: ${{ steps.pip_cache.outputs.dir }}
                   key: pip|${{ runner.os }}|${{ matrix.python }}|${{ hashFiles('setup.py') }}|${{ hashFiles('requirements/*.txt') }}
             - name: Install test utils
-              run: pip install tox
+              run: |
+                   pip install tox
             - name: Tests
               run: |
                    tox -e ${{ matrix.tox }}
@@ -63,16 +66,17 @@ jobs:
     docs:
         needs: [build]
         runs-on: ubuntu-latest
-        concurrency: python-docs
         steps:
             - uses: actions/checkout@v4
             - uses: actions/setup-python@v4
               with:
                   python-version: "3.11"
             - name: Install dependencies
-              run: pip install -r requirements/docs.txt
+              run: |
+                   pip install -r requirements/docs.txt
             - name: Make docs
-              run: cd docs && make html
+              run: |
+                   cd docs && make html
             - name: Publish docs
               uses: peaceiris/actions-gh-pages@v3
               with:
@@ -82,7 +86,6 @@ jobs:
     publish:
         needs: [build]
         runs-on: ubuntu-latest
-        concurrency: python-publish
         permissions:
             id-token: write
             contents: write

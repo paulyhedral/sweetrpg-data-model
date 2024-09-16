@@ -10,7 +10,7 @@ on:
         - cron: "30 2 * * 0"
     push:
         branches:
-            - python
+            - develop
         paths:
             - "requirements/*.in"
             - setup.py
@@ -23,7 +23,7 @@ jobs:
             - uses: actions/setup-python@v4
               with:
                   python-version: "3.11"
-            - name: update-reqs
+            - name: Update requirements
               run: |
                   pip install -U wheel setuptools pip-tools
                   git config --global user.email "ci@sweetrpg.com"

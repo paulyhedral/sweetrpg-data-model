@@ -4,7 +4,3 @@ version_variables = ["src/sweetrpg_kv_objects/__init__.py:__version__"]
 [tool.semantic_release.branches.master]
 match = "(master|develop)"
 prerelease = false
-
-[tool.semantic_release.branches.python]
-match = "python"
-prerelease = false
