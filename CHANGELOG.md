@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.0.22 (2024-09-16)
+
+### Unknown
+
+* Stuff ([`1357ed3`](https://github.com/sweetrpg/kv-objects/commit/1357ed3f5795d70f66b04e0d770bce91987392b9))
+
 ## v0.0.21 (2024-09-16)
 
 ### Unknown
