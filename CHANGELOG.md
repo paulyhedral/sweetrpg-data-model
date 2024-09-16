@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.0.21 (2024-09-16)
+
+### Unknown
+
+* Old method ([`821dbad`](https://github.com/sweetrpg/kv-objects/commit/821dbad21f1393ff4682f294c58c0283cdc87aba))
+
 ## v0.0.20 (2024-09-16)
 
 ### Unknown
