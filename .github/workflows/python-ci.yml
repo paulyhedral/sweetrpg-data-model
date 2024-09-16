@@ -1,0 +1,132 @@
+name: Python CI
+
+concurrency: python-ci
+
+on:
+    push:
+        branches:
+            - develop
+        paths:
+            - "src/**"
+            - "tests/**"
+            - setup.cfg
+            - setup.py
+            - tox.ini
+            - "requirements/*.txt"
+            - "docs/**"
+    workflow_run:
+        workflows: ["Update Requirements"]
+        types: [completed]
+
+jobs:
+    build:
+        name: ${{ matrix.name }}
+        runs-on: ${{ matrix.os }}
+        strategy:
+            fail-fast: true
+            matrix:
+                include:
+                    - name: Linux
+                      python: "3.11"
+                      os: ubuntu-latest
+                      tox: py311
+                    # - name: Windows
+                    #   python: "3.11"
+                    #   os: windows-latest
+                    #   tox: py311
+                    # - name: Mac
+                    #   python: "3.11"
+                    #   os: macos-latest
+                    #   tox: py311
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-python@v4
+              with:
+                  python-version: ${{ matrix.python }}
+            - name: Update Pip
+              run: |
+                   pip install -U wheel setuptools
+                   python -m pip install -U pip
+            - name: Get Pip cache dir
+              id: pip_cache
+              run: |
+                   echo "dir=$(pip cache dir)" >> $GITHUB_OUTPUT
+            - name: Cache Pip
+              uses: actions/cache@v3
+              with:
+                  path: ${{ steps.pip_cache.outputs.dir }}
+                  key: pip|${{ runner.os }}|${{ matrix.python }}|${{ hashFiles('setup.py') }}|${{ hashFiles('requirements/*.txt') }}
+            - name: Install test utils
+              run: |
+                   pip install tox
+            - name: Tests
+              run: |
+                   tox -e ${{ matrix.tox }}
+
+    docs:
+        needs: [build]
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-python@v4
+              with:
+                  python-version: "3.11"
+            - name: Install dependencies
+              run: |
+                   pip install -r requirements/docs.txt
+            - name: Make docs
+              run: |
+                   cd docs && make html
+            - name: Publish docs
+              uses: peaceiris/actions-gh-pages@v3
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_dir: ./docs/_build/html
+
+    publish:
+        needs: [build]
+        runs-on: ubuntu-latest
+        permissions:
+            id-token: write
+            contents: write
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+            - name: Publish package
+              uses: relekang/python-semantic-release@v7.34.6
+              with:
+                  additional_options: "--patch"
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  repository_username: __token__
+                  repository_password: ${{ secrets.PYPI_TOKEN }}
+
+    notify:
+        needs: [publish]
+        runs-on: ubuntu-latest
+        strategy:
+            fail-fast: false
+            matrix:
+                include:
+                    - repo: kv-api
+                    - repo: client
+                    - repo: main-web
+                    - repo: shared-web
+                    - repo: web-core
+                    - repo: kv-expression-processor
+                    - repo: kv-key-processor
+                    - repo: kv-value-calculator
+        steps:
+            - name: Notify
+              uses: juztcode/repo-ditpatch-action@v1
+              with:
+                  event-type: kv-objects-published
+                  token: ${{ secrets.REPO_ACCESS_TOKEN }}
+                  repository: sweetrpg/${{ matrix.repo }}
+#            - name: Dispatch event
+#              uses: ph-fritsche/action-dispatch@v1
+#              with:
+#                token: ${{ secrets.GITHUB_TOKEN }}
+#                type: repository
+#                ident: published
+#                payload: '{"foo":"bar"}' # json
