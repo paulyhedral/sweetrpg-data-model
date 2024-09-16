@@ -2,7 +2,8 @@ name: Python CI
 
 on:
     push:
-        branches: [python]
+        branches:
+            - python
         paths:
             - "src/**"
             - "tests/**"
@@ -24,14 +25,18 @@ jobs:
             fail-fast: false
             matrix:
                 include:
-                    - {
-                          name: Linux,
-                          python: "3.11",
-                          os: ubuntu-latest,
-                          tox: py311,
-                      }
-                    # - { name: Windows, python: "3.10", os: windows-latest, tox: py310 }
-                    # - { name: Mac, python: "3.10", os: macos-latest, tox: py310 }
+                    - name: Linux
+                      python: "3.11"
+                      os: ubuntu-latest
+                      tox: py311
+                    - name: Windows
+                      python: "3.11"
+                      os: windows-latest
+                      tox: py311
+                    - name: Mac
+                      python: "3.11"
+                      os: macos-latest
+                      tox: py311
         steps:
             - uses: actions/checkout@v4
             - uses: actions/setup-python@v4
@@ -39,21 +44,21 @@ jobs:
                   python-version: ${{ matrix.python }}
             - name: update-pip
               run: |
-                  pip install -U wheel setuptools
-                  python -m pip install -U pip
+                   pip install -U wheel setuptools
+                   python -m pip install -U pip
             - name: get-pip-cache-dir
-              id: pip-cache
+              id: pip_cache
               run: echo "dir=$(pip cache dir)" >> $GITHUB_OUTPUT
             - name: cache-pip
               uses: actions/cache@v3
               with:
-                  path: ${{ steps.pip-cache.outputs.dir }}
+                  path: ${{ steps.pip_cache.outputs.dir }}
                   key: pip|${{ runner.os }}|${{ matrix.python }}|${{ hashFiles('setup.py') }}|${{ hashFiles('requirements/*.txt') }}
             - name: install-utils
               run: pip install tox
             - name: tests
               run: |
-                  tox -e ${{ matrix.tox }}
+                   tox -e ${{ matrix.tox }}
 
     docs:
         needs: [build]
@@ -81,32 +86,17 @@ jobs:
         permissions:
             id-token: write
             contents: write
-        environment:
-            name: release
-            url: https://pypi.org/p/sweetrpg-kv-objects
         steps:
             - uses: actions/checkout@v4
               with:
                   fetch-depth: 0
-            - name: Release
-              id: release
-              uses: python-semantic-release/python-semantic-release@v9.8.8
+            - name: Publish
+              uses: relekang/python-semantic-release@v7.34.6
               with:
-                  force: "patch"
+                  additional_options: "--patch"
                   github_token: ${{ secrets.GITHUB_TOKEN }}
-            - name: Publish package distributions to PyPI
-              uses: pypa/gh-action-pypi-publish@release/v1
-              if: steps.release.outputs.released == 'true'
-              with:
-                  packages-dir: src/
-                  skip-existing: true
-                  verbose: true
-                  password: ${{ secrets.PYPI_TOKEN }}
-            - name: Publish package distributions to GitHub Releases
-              uses: python-semantic-release/upload-to-gh-release@v9.8.8
-              if: steps.release.outputs.released == 'true'
-              with:
-                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  repository_username: __token__
+                  repository_password: ${{ secrets.PYPI_TOKEN }}
 
     notify:
         needs: [publish]
