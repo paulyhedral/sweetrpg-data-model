@@ -8,13 +8,13 @@ blinker==1.6.3
     # via flask
 click==8.1.7
     # via flask
-dnspython==2.4.2
+dnspython==2.6.1
     # via
     #   pymongo
     #   sweetrpg-db
 flask==2.3.3
     # via
-    #   -r requirements/pkg.in
+    #   -r pkg.in
     #   flask-rest-jsonapi
     #   sweetrpg-api-core
 flask-rest-jsonapi==0.31.2
@@ -37,11 +37,11 @@ marshmallow==3.20.1
     #   sweetrpg-model-core
 marshmallow-jsonapi==0.24.0
     # via
-    #   -r requirements/pkg.in
+    #   -r pkg.in
     #   flask-rest-jsonapi
 mongoengine==0.27.0
     # via
-    #   -r requirements/pkg.in
+    #   -r pkg.in
     #   sweetrpg-api-core
     #   sweetrpg-db
 packaging==23.2
@@ -56,14 +56,14 @@ six==1.16.0
 sqlalchemy==2.0.21
     # via flask-rest-jsonapi
 sweetrpg-api-core==0.0.220
-    # via -r requirements/pkg.in
+    # via -r pkg.in
 sweetrpg-db==0.0.137
     # via
-    #   -r requirements/pkg.in
+    #   -r pkg.in
     #   sweetrpg-api-core
 sweetrpg-model-core==0.0.151
     # via
-    #   -r requirements/pkg.in
+    #   -r pkg.in
     #   sweetrpg-api-core
     #   sweetrpg-db
 typing-extensions==4.8.0
