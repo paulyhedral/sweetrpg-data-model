@@ -98,7 +98,7 @@ jobs:
               uses: pypa/gh-action-pypi-publish@release/v1
               if: steps.release.outputs.released == 'true'
               with:
-                  packages-dir: ./
+                  packages-dir: src/
                   skip-existing: true
                   verbose: true
                   password: ${{ secrets.PYPI_TOKEN }}
