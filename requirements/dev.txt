@@ -44,7 +44,7 @@ coverage-badge==1.1.2
     # via -r requirements/tests.in
 distlib==0.3.8
     # via virtualenv
-dnspython==2.6.1
+dnspython==2.7.0
     # via
     #   pymongo
     #   sweetrpg-db
@@ -137,14 +137,14 @@ pygments==2.18.0
     #   rich
     #   sphinx
     #   sphinx-tabs
-pymongo[srv]==4.9.1
+pymongo[srv]==4.10.1
     # via
     #   mongoengine
     #   sweetrpg-db
     #   sweetrpg-model-core
 pyproject-api==1.8.0
     # via tox
-pyproject-hooks==1.1.0
+pyproject-hooks==1.2.0
     # via
     #   build
     #   pip-tools
@@ -164,7 +164,7 @@ python-dotenv==1.0.1
     # via -r requirements/tests.in
 requests==2.32.3
     # via sphinx
-rich==13.8.1
+rich==13.9.2
     # via typer
 rstcheck==6.2.4
     # via -r requirements/docs.in
@@ -203,7 +203,7 @@ sphinxcontrib-serializinghtml==2.0.0
     # via sphinx
 sqlalchemy==2.0.35
     # via flask-rest-jsonapi
-sweetrpg-api-core==0.0.326
+sweetrpg-api-core==0.0.328
     # via -r requirements/pkg.in
 sweetrpg-db==0.0.137
     # via
@@ -214,7 +214,7 @@ sweetrpg-model-core==0.0.154
     #   -r requirements/pkg.in
     #   sweetrpg-api-core
     #   sweetrpg-db
-tox==4.20.0
+tox==4.21.2
     # via -r requirements/tests.in
 typer==0.12.5
     # via rstcheck

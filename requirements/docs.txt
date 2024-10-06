@@ -20,7 +20,7 @@ click==8.1.7
     # via
     #   flask
     #   typer
-dnspython==2.6.1
+dnspython==2.7.0
     # via
     #   pymongo
     #   sweetrpg-db
@@ -87,14 +87,14 @@ pygments==2.18.0
     #   rich
     #   sphinx
     #   sphinx-tabs
-pymongo[srv]==4.9.1
+pymongo[srv]==4.10.1
     # via
     #   mongoengine
     #   sweetrpg-db
     #   sweetrpg-model-core
 requests==2.32.3
     # via sphinx
-rich==13.8.1
+rich==13.9.2
     # via typer
 rstcheck==6.2.4
     # via -r requirements/docs.in
@@ -133,7 +133,7 @@ sphinxcontrib-serializinghtml==2.0.0
     # via sphinx
 sqlalchemy==2.0.35
     # via flask-rest-jsonapi
-sweetrpg-api-core==0.0.326
+sweetrpg-api-core==0.0.328
     # via -r requirements/pkg.in
 sweetrpg-db==0.0.137
     # via
