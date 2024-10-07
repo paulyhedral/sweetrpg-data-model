@@ -14,7 +14,7 @@ dnspython==2.7.0
     #   sweetrpg-db
 flask==3.0.3
     # via
-    #   -r requirements/pkg.in
+    #   -r pkg.in
     #   flask-rest-jsonapi
     #   sweetrpg-api-core
 flask-rest-jsonapi==0.31.2
@@ -37,11 +37,11 @@ marshmallow==3.22.0
     #   sweetrpg-model-core
 marshmallow-jsonapi==0.24.0
     # via
-    #   -r requirements/pkg.in
+    #   -r pkg.in
     #   flask-rest-jsonapi
 mongoengine==0.29.1
     # via
-    #   -r requirements/pkg.in
+    #   -r pkg.in
     #   sweetrpg-api-core
     #   sweetrpg-db
 packaging==24.1
@@ -49,6 +49,7 @@ packaging==24.1
 pymongo[srv]==3.13.0
     # via
     #   mongoengine
+    #   pymongo
     #   sweetrpg-db
     #   sweetrpg-model-core
 six==1.16.0
@@ -56,14 +57,14 @@ six==1.16.0
 sqlalchemy==2.0.35
     # via flask-rest-jsonapi
 sweetrpg-api-core==0.0.332
-    # via -r requirements/pkg.in
-sweetrpg-db==0.0.140
+    # via -r pkg.in
+sweetrpg-db==0.0.141
     # via
-    #   -r requirements/pkg.in
+    #   -r pkg.in
     #   sweetrpg-api-core
 sweetrpg-model-core==0.0.155
     # via
-    #   -r requirements/pkg.in
+    #   -r pkg.in
     #   sweetrpg-api-core
     #   sweetrpg-db
 typing-extensions==4.12.2
