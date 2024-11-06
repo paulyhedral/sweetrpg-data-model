@@ -6,7 +6,7 @@ Metadata.
 __title__ = "sweetrpg-kv-objects"
 __description__ = "Model objects for SweetRPG Key-Value"
 __url__ = "https://sweetrpg.com"
-__version__ = "0.0.49"
+__version__ = "0.0.50"
 __build__ = 0x00000d
 __author__ = "Paul Schifferer"
 __author_email__ = "dm@sweetrpg.com"
