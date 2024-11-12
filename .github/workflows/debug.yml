@@ -50,10 +50,10 @@ jobs:
           with_initial_version: true
       - name: Docker meta
         id: meta
-        uses: docker/metadata-action@v3
+        uses: docker/metadata-action@v5
         with:
           images: |
-            registry.sweetrpg.com/sweetrpg-kv-objects
+            registry.sweetrpg.com/sweetrpg-main-web
           tags: |
             type=raw,value=latest
             type=raw,value=${{ steps.previoustag.outputs.tag }}
