@@ -1,5 +1,6 @@
 /** 
  * Constants
+ * @paulyhedral
  */
 
 // Event types
