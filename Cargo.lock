@@ -81,11 +81,12 @@ dependencies = [
 
 [[package]]
 name = "sweetrpg-model-core"
-version = "0.0.1"
+version = "0.0.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0816f470200a891ad6a07e99c91303dde347ba8e5526e0d4921d2477fcf80967"
+checksum = "47fe72a6710b361103b1dc146115d802cbeab20d3f2fabed033181897ee24dd8"
 dependencies = [
  "serde",
+ "serde_json",
 ]
 
 [[package]]
