@@ -1,4 +1,9 @@
+/**
+ * Expression event
+ * @paulyhedral
+ */
 use serde::{Deserialize, Serialize};
+
 
 /// Expression event.
 /// This object represents a change in a key's expression.
@@ -27,10 +32,10 @@ mod tests {
             key: "key".to_string(),
             occurred_at: 1234567890,
         };
-        
+
         let json = serde_json::to_string(&event1).unwrap();
         let event2: ExpressionEvent = serde_json::from_str(&json).unwrap();
-        
+
         assert_eq!(event2.id, "12345");
         assert_eq!(event2.store_id, "12345");
         assert_eq!(event2.event, "expression");

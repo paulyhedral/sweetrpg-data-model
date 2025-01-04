@@ -1,5 +1,6 @@
-/// Constants
-///
+/** 
+ * Constants
+ */
 
 // Event types
 pub static EVENT_EXPRESSION_CHANGED: &str = "expression_changed";

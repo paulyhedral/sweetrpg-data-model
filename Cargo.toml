@@ -1,9 +1,9 @@
 [package]
-name = "kv-objects"
+name = "sweetrpg-kv-objects"
 description = "Objects for Key-value store"
 version = "0.0.1"
 edition = "2021"
-license-file = "LICENSE"
+license = "MIT"
 readme = "README.md"
 repository = "https://github.com/sweetrpg/kv-objects.rs"
 homepage = "https://github.com/sweetrpg/kv-objects"
