@@ -7,14 +7,14 @@ use sweetrpg_model_core::vo::tag::*;
 /// This value object is a serializable representation of the Key model.
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct KeyVO {
-    ID: String,
-    Store: StoreVO,
-    Name: String,
-    Description: String,
-    Type: String,
-    Encoding: String,
-    Expression: String,
-    Notes: String,
-    Tags: Vec<TagVO>,
+    pub id: String,
+    pub store: StoreVO,
+    pub name: String,
+    pub description: String,
+    pub type_: String,
+    pub encoding: String,
+    pub expression: String,
+    pub notes: String,
+    pub tags: Vec<TagVO>,
     pub auditable: AuditableVO,
 }
