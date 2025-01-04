@@ -1,0 +1,24 @@
+[package]
+name = "kv-objects"
+description = "Objects for Key-value store"
+version = "0.0.1"
+edition = "2021"
+license-file = "LICENSE"
+readme = "README.md"
+repository = "https://github.com/sweetrpg/kv-objects.rs"
+homepage = "https://github.com/sweetrpg/kv-objects"
+keywords = ["sweetrpg", "key-value", "objects"]
+categories = ["data-structures"]
+authors = ["Paul Schifferer <paul@schifferers.net>"]
+exclude = [
+    "*.orig",
+    ".github/*",
+    ".gitignore",
+    ".rust-version",
+    ".editorconfig",
+    ".cargo_vcs_info.json",
+]
+
+[dependencies]
+sweetrpg-model-core = "*"
+serde = { version = "1.0.217", features = ["derive"] }

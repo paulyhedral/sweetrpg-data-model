@@ -1,6 +1,6 @@
-# kv-objects
+# kv-objects.rs
 
-Objects for the Key-value Store.
+Rust objects for the Key-value Store.
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/3ea3937d347e5e247403/maintainability)](https://codeclimate.com/github/sweetrpg/kv-objects/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/3ea3937d347e5e247403/test_coverage)](https://codeclimate.com/github/sweetrpg/kv-objects/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/3ea3937d347e5e247403/maintainability)](https://codeclimate.com/github/sweetrpg/kv-objects.rs/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/3ea3937d347e5e247403/test_coverage)](https://codeclimate.com/github/sweetrpg/kv-objects.rs/test_coverage)
