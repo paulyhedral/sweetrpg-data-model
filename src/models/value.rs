@@ -1,3 +1,4 @@
+use serde::{Deserialize, Serialize};
 /**
  * Value model object.
  * @paulyhedral
@@ -8,7 +9,7 @@ use sweetrpg_model_core::models::tag::*;
 
 /// Value model.
 /// This model represents a store of key-value information.
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Value {
     pub id: String,
     pub store_id: String,
