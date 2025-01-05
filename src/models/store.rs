@@ -17,6 +17,7 @@ pub struct Store {
     pub current_snapshot_id: String,
     pub notes: String,
     pub tags: Vec<Tag>,
+    #[serde(flatten)]
     pub auditable: Auditable,
 }
 

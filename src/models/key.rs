@@ -20,6 +20,7 @@ pub struct Key {
     pub expression: String,
     pub notes: String,
     pub tags: Vec<Tag>,
+    #[serde(flatten)]
     pub auditable: Auditable,
 }
 

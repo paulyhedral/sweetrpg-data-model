@@ -20,6 +20,7 @@ pub struct KeyVO {
     pub expression: String,
     pub notes: String,
     pub tags: Vec<TagVO>,
+    #[serde(flatten)]
     pub auditable: AuditableVO,
 }
 

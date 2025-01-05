@@ -17,6 +17,7 @@ pub struct StoreVO {
     pub current_snapshot_id: String,
     pub notes: String,
     pub tags: Vec<TagVO>,
+    #[serde(flatten)]
     pub auditable: AuditableVO,
 }
 

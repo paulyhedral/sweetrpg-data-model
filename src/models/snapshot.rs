@@ -16,6 +16,7 @@ pub struct Snapshot {
     pub name: String,
     pub notes: String,
     pub tags: Vec<Tag>,
+    #[serde(flatten)]
     pub auditable: Auditable,
 }
 

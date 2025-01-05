@@ -18,6 +18,7 @@ pub struct ValueVO {
     pub value: String,
     pub notes: String,
     pub tags: Vec<TagVO>,
+    #[serde(flatten)]
     pub auditable: AuditableVO,
 }
 
