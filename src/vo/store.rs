@@ -2,7 +2,6 @@
  * Store value object.
  * @paulyhedral
  */
-use crate::vo::snapshot::SnapshotVO;
 use serde::{Deserialize, Serialize};
 use sweetrpg_model_core::vo::auditable::*;
 use sweetrpg_model_core::vo::tag::*;
@@ -15,7 +14,7 @@ pub struct StoreVO {
     pub id: String,
     pub name: String,
     pub description: String,
-    pub current_snapshot: SnapshotVO,
+    pub current_snapshot_id: String,
     pub notes: String,
     pub tags: Vec<TagVO>,
     pub auditable: AuditableVO,

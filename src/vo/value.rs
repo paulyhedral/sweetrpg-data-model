@@ -2,9 +2,6 @@
  * Value value object.
  * @paulyhedral
  */
-use crate::vo::key::KeyVO;
-use crate::vo::snapshot::SnapshotVO;
-use crate::vo::store::StoreVO;
 use serde::{Deserialize, Serialize};
 use sweetrpg_model_core::vo::auditable::*;
 use sweetrpg_model_core::vo::tag::*;
@@ -15,9 +12,9 @@ use sweetrpg_model_core::vo::tag::*;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ValueVO {
     pub id: String,
-    pub store: StoreVO,
-    pub key: KeyVO,
-    pub snapshot: SnapshotVO,
+    pub store_id: String,
+    pub key_id: String,
+    pub snapshot_id: String,
     pub value: String,
     pub notes: String,
     pub tags: Vec<TagVO>,

@@ -2,7 +2,6 @@
  * Snapshot value object.
  * @paulyhedral
  */
-use crate::vo::store::StoreVO;
 use serde::{Deserialize, Serialize};
 use sweetrpg_model_core::vo::auditable::*;
 use sweetrpg_model_core::vo::tag::*;
@@ -13,7 +12,7 @@ use sweetrpg_model_core::vo::tag::*;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct SnapshotVO {
     pub id: String,
-    pub store: Box<StoreVO>,
+    pub store_id: String,
     pub name: String,
     pub notes: String,
     pub tags: Vec<TagVO>,
