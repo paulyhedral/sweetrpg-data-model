@@ -1,5 +1,10 @@
+/**
+ * Value model object.
+ * @paulyhedral
+ */
 use sweetrpg_model_core::models::auditable::*;
 use sweetrpg_model_core::models::tag::*;
+
 
 /// Value model.
 /// This model represents a store of key-value information.
@@ -14,3 +19,8 @@ pub struct Value {
     pub tags: Vec<Tag>,
     pub auditable: Auditable,
 }
+
+// ----------------------------------------------------------------------
+
+#[cfg(test)]
+mod tests {}

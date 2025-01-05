@@ -7,6 +7,7 @@ use serde::{Deserialize, Serialize};
 
 /// Value event.
 /// This object represents a change in a key's value.
+/// The usual event type found in this object is {@EVENT_RECALCULATE}.
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ValueEvent {
     pub id: String,

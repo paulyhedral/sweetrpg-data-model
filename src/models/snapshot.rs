@@ -1,5 +1,10 @@
+/**
+ * Snapshot model object.
+ * @paulyhedral
+ */
 use sweetrpg_model_core::models::auditable::*;
 use sweetrpg_model_core::models::tag::*;
+
 
 /// Snapshot model.
 /// This model represents a snapshot of keys and values in a store.
@@ -12,3 +17,8 @@ pub struct Snapshot {
     pub tags: Vec<Tag>,
     pub auditable: Auditable,
 }
+
+// ----------------------------------------------------------------------
+
+#[cfg(test)]
+mod tests {}

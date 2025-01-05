@@ -1,7 +1,12 @@
+/**
+ * Store value object.
+ * @paulyhedral
+ */
 use crate::vo::snapshot::SnapshotVO;
 use serde::{Deserialize, Serialize};
 use sweetrpg_model_core::vo::auditable::*;
 use sweetrpg_model_core::vo::tag::*;
+
 
 /// Store value object.
 /// This value object is a serializable representation of the Store model.
@@ -15,3 +20,8 @@ pub struct StoreVO {
     pub tags: Vec<TagVO>,
     pub auditable: AuditableVO,
 }
+
+// ----------------------------------------------------------------------
+
+#[cfg(test)]
+mod tests {}

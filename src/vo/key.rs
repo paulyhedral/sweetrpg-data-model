@@ -1,7 +1,12 @@
+/**
+ * Key value object.
+ * @paulyhedral
+ */
 use crate::vo::store::StoreVO;
 use serde::{Deserialize, Serialize};
 use sweetrpg_model_core::vo::auditable::*;
 use sweetrpg_model_core::vo::tag::*;
+
 
 /// Key value object.
 /// This value object is a serializable representation of the Key model.
@@ -18,3 +23,8 @@ pub struct KeyVO {
     pub tags: Vec<TagVO>,
     pub auditable: AuditableVO,
 }
+
+// ----------------------------------------------------------------------
+
+#[cfg(test)]
+mod tests {}

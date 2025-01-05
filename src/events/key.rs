@@ -1,4 +1,9 @@
+/**
+ * Key event object.
+ * @paulyhedral
+ */
 use serde::{Deserialize, Serialize};
+
 
 /// Key event.
 /// This object represents an event on a store's key.
