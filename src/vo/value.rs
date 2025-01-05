@@ -27,6 +27,7 @@ pub struct ValueVO {
 mod tests {
     use super::*;
     use sweetrpg_model_core::vo::auditable::AuditableVO;
+    use sweetrpg_model_core::vo::tag::TagVO;
 
     #[test]
     fn serialize_value_vo() {
@@ -37,7 +38,7 @@ mod tests {
             snapshot_id: "fghij".to_string(),
             value: "value".to_string(),
             notes: "notes".to_string(),
-            tags: vec![],
+            tags: vec![ TagVO { name: "tag".to_string(), value: "value".to_string() } ],
             auditable: AuditableVO {
                 created_at: 123456789,
                 created_by: "user".to_string(),
