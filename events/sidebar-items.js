@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":["expression","key","value"]};
+window.SIDEBAR_ITEMS = {"mod":["expression","key","response","value"]};
