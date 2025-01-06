@@ -55,13 +55,11 @@ jobs:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   WITH_V: true
                   DEFAULT_BUMP: patch
-            - name: Update Cargo.toml
-              run: |
-                  sed -i 's/^version = ".*"$/version = "'${{ steps.bump_version.outputs.new_tag }}'"/' Cargo.toml
             - name: Commit and push
               run: |
                   git config --global user.email "ci@sweetrpg.com"
                   git config --global user.name "SweetRPG CI"
+                  sed -i 's/^version = ".*"$/version = "'${{ steps.bump_version.outputs.new_tag }}'"/' Cargo.toml
                   git add Cargo.toml
                   git commit -m "Update Cargo.toml on ${{ github.ref_name }} with version: ${{ steps.bump_version.outputs.new_tag }}"
                   git push origin
