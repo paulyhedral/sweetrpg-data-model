@@ -1,5 +1,5 @@
 /**
- * Value objects.
+ * Value objects
  */
 pub mod key;
 pub mod snapshot;
