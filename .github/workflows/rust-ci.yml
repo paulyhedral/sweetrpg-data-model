@@ -63,6 +63,13 @@ jobs:
                   git add Cargo.toml
                   git commit -m "Update Cargo.toml on ${{ github.ref_name }} with version: ${{ steps.bump_version.outputs.new_tag }}"
                   git push origin
+            - name: Run release-plz
+              uses: release-plz/action@v0.5
+              with:
+                  command: release
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  CARGO_REGISTRY_TOKEN: ${{ secrets.CRATES_API_KEY }}
 
     docs:
         needs: [tests]
@@ -89,30 +96,23 @@ jobs:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
                   publish_dir: ./target/doc/sweetrpg_kv_objects/
 
-    release:
-        needs: [tests]
-        runs-on: ubuntu-latest
-        permissions:
-            contents: write
-        steps:
-            - uses: actions/checkout@v4
-              with:
-                  fetch-depth: 0
-            - name: Install Rust
-              uses: dtolnay/rust-toolchain@stable
-            - name: Check version
-              run: |
-                    cat Cargo.toml
-            - name: Run release-plz
-              uses: release-plz/action@v0.5
-              with:
-                  command: release
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  CARGO_REGISTRY_TOKEN: ${{ secrets.CRATES_API_KEY }}
+#    release:
+#        needs: [tests]
+#        runs-on: ubuntu-latest
+#        permissions:
+#            contents: write
+#        steps:
+#            - uses: actions/checkout@v4
+#              with:
+#                  fetch-depth: 0
+#            - name: Install Rust
+#              uses: dtolnay/rust-toolchain@stable
+#            - name: Check version
+#              run: |
+#                    cat Cargo.toml
 
     notify:
-        needs: [release]
+        needs: [tests]
         runs-on: ubuntu-latest
         strategy:
             fail-fast: false
