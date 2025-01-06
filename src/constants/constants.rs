@@ -9,6 +9,11 @@ pub static EVENT_RECALCULATE: &str = "recalculate";
 pub static EVENT_VALUE_CHANGED: &str = "value_changed";
 pub static EVENT_PING: &str = "ping";
 
+// Response values 
+pub static RESPONSE_SUCCESS: &str = "success";
+pub static RESPONSE_PONG: &str = "pong";
+pub static RESPONSE_ERROR: &str = "error";
+
 // Key types
 pub static KEY_TYPE_INTEGER: &str = "number";
 pub static KEY_TYPE_STRING: &str = "string";
