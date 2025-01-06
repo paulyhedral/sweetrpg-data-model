@@ -1,5 +1,5 @@
 /**
- * Events
+ * Event objects
  */
 pub mod expression;
 pub mod key;
