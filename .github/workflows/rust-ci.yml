@@ -53,7 +53,7 @@ jobs:
               uses: anothrNick/github-tag-action@v1
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  WITH_V: false
+                  WITH_V: true
                   DEFAULT_BUMP: patch
             - name: Update Cargo.toml
               run: |
@@ -64,7 +64,7 @@ jobs:
                   git config --global user.name "SweetRPG CI"
                   git add Cargo.toml
                   git commit -m "Update Cargo.toml on ${{ github.ref_name }} with version: ${{ steps.bump_version.outputs.new_tag }}"
-                  git push origin --tags
+                  git push origin
 
     docs:
         needs: [tests]
