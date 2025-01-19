@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"struct":["ValueEvent"]};
+window.SIDEBAR_ITEMS = {"struct":["ValueEvent","ValueResponse"]};

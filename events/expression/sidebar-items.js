@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"struct":["ExpressionEvent"]};
+window.SIDEBAR_ITEMS = {"struct":["ExpressionEvent","ExpressionResponse"]};

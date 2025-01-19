@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"struct":["KeyEvent"]};
+window.SIDEBAR_ITEMS = {"struct":["KeyEvent","KeyResponse"]};
