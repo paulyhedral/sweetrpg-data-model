@@ -1,8 +1,8 @@
-use crate::events::response::*;
 /**
  * Key event object.
  * @paulyhedral
  */
+use crate::events::response::*;
 use serde::{Deserialize, Serialize};
 
 
