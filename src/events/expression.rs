@@ -29,6 +29,7 @@ pub struct ExpressionResponse {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::constants::constants::EVENT_EXPRESSION;
     use serde_json;
 
     #[test]
@@ -36,7 +37,7 @@ mod tests {
         let event1 = ExpressionEvent {
             id: "12345".to_string(),
             store_id: "12345".to_string(),
-            event: "expression".to_string(),
+            event: EVENT_EXPRESSION.to_string(),
             key: "key".to_string(),
             occurred_at: 1234567890,
         };
@@ -46,7 +47,7 @@ mod tests {
 
         assert_eq!(event2.id, "12345");
         assert_eq!(event2.store_id, "12345");
-        assert_eq!(event2.event, "expression");
+        assert_eq!(event2.event, EVENT_EXPRESSION);
         assert_eq!(event2.key, "key");
         assert_eq!(event2.occurred_at, 1234567890);
     }

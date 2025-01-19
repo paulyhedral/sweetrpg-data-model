@@ -16,6 +16,7 @@ pub struct Response {
 
 #[cfg(test)]
 mod tests {
+    use crate::constants::constants::RESPONSE_PONG;
     use serde_json;
 
     #[test]

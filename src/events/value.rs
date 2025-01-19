@@ -19,7 +19,7 @@ pub struct ValueEvent {
 
 /// Value response.
 #[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct Response {
+pub struct ValueResponse {
     #[serde(flatten)]
     pub base_response: Response,
     // TODO
@@ -30,7 +30,7 @@ pub struct Response {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::constants::constants::EVENT_RECALCULATE;
+    use crate::constants::constants::{EVENT_RECALCULATE, RESPONSE_SUCCESS};
     use serde_json;
 
     #[test]
