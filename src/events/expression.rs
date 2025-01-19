@@ -2,6 +2,7 @@
  * Expression event
  * @paulyhedral
  */
+use crate::events::response::*;
 use serde::{Deserialize, Serialize};
 
 
@@ -20,7 +21,7 @@ pub struct ExpressionEvent {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ExpressionResponse {
     #[serde(flatten)]
-    pub base_response: Response ,
+    pub base_response: Response,
     // TODO
 }
 
