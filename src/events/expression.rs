@@ -19,8 +19,8 @@ pub struct ExpressionEvent {
 /// Expression response.
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ExpressionResponse {
-    pub status: String,
-    pub message: String,
+    #[serde(flatten)]
+    pub base_response: Response ,
     // TODO
 }
 
@@ -54,8 +54,11 @@ mod tests {
     #[test]
     fn serialize_response() {
         let response1 = super::ExpressionResponse {
-            status: RESPONSE_SUCCESS.to_string(),
-            message: "all good".to_string(),
+            base_response: Response {
+                status: RESPONSE_SUCCESS.to_string(),
+                message: "all good".to_string(),
+            },
+            // TODO
         };
 
         let json = serde_json::to_string(&response1).unwrap();

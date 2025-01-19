@@ -19,8 +19,8 @@ pub struct KeyEvent {
 /// Response
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct KeyResponse {
-    pub status: String,
-    pub message: String,
+    #[serde(flatten)]
+    pub base_response: Response ,
     pub count: u64,
     pub keys: Vec<String>,
 }
@@ -57,8 +57,10 @@ mod tests {
     #[test]
     fn serialize_response() {
         let response1 = super::KeyResponse {
-            status: RESPONSE_SUCCESS.to_string(),
-            message: "all good".to_string(),
+            base_response: Response {
+                status: RESPONSE_SUCCESS.to_string(),
+                message: "all good".to_string(),
+            },
             count: 1,
             keys: vec!["key1".to_string(), "key2".to_string()],
         };
