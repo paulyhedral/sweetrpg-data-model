@@ -17,6 +17,14 @@ pub struct ValueEvent {
     pub occurred_at: u64,
 }
 
+/// Value response.
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct Response {
+    pub status: String,
+    pub message: String,
+    // TODO
+}
+
 // ----------------------------------------------------------------------
 
 #[cfg(test)]
@@ -43,5 +51,19 @@ mod tests {
         assert_eq!(event1.event, event2.event);
         assert_eq!(event1.key, event2.key);
         assert_eq!(event1.occurred_at, event2.occurred_at);
+    }
+
+    #[test]
+    fn serialize_response() {
+        let response1 = super::ValueResponse {
+            status: RESPONSE_SUCCESS.to_string(),
+            message: "all good".to_string(),
+        };
+
+        let json = serde_json::to_string(&response1).unwrap();
+        let response2: super::ValueResponse = serde_json::from_str(&json).unwrap();
+
+        assert_eq!(response1.status, response2.status);
+        assert_eq!(response1.message, response2.message);
     }
 }

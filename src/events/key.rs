@@ -16,6 +16,16 @@ pub struct KeyEvent {
     pub occurred_at: u64,
 }
 
+/// Response
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct KeyResponse {
+    pub status: String,
+    pub message: String,
+    pub count: u64,
+    pub keys: Vec<String>,
+}
+
+
 // ----------------------------------------------------------------------
 
 #[cfg(test)]
@@ -42,5 +52,23 @@ mod tests {
         assert_eq!(event1.event, event2.event);
         assert_eq!(event1.key, event2.key);
         assert_eq!(event1.occurred_at, event2.occurred_at);
+    }
+
+    #[test]
+    fn serialize_response() {
+        let response1 = super::KeyResponse {
+            status: RESPONSE_SUCCESS.to_string(),
+            message: "all good".to_string(),
+            count: 1,
+            keys: vec!["key1".to_string(), "key2".to_string()],
+        };
+
+        let json = serde_json::to_string(&response1).unwrap();
+        let response2: super::KeyResponse = serde_json::from_str(&json).unwrap();
+
+        assert_eq!(response1.status, response2.status);
+        assert_eq!(response1.message, response2.message);
+        assert_eq!(response1.count, response2.count);
+        assert_eq!(response1.keys, response2.keys);
     }
 }
