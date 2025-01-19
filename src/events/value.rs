@@ -31,7 +31,7 @@ pub struct ValueResponse {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::constants::constants::{EVENT_RECALCULATE, RESPONSE_SUCCESS};
+    use crate::constants::constants::*;
     use serde_json;
 
     #[test]

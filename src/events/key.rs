@@ -32,7 +32,7 @@ pub struct KeyResponse {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::constants::constants::EVENT_EXPRESSION_CHANGED;
+    use crate::constants::constants::*;
     use serde_json;
 
     #[test]
