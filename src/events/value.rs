@@ -67,7 +67,7 @@ mod tests {
         let json = serde_json::to_string(&response1).unwrap();
         let response2: super::ValueResponse = serde_json::from_str(&json).unwrap();
 
-        assert_eq!(response1.status, response2.status);
-        assert_eq!(response1.message, response2.message);
+        assert_eq!(response1.base_response.status, response2.base_response.status);
+        assert_eq!(response1.base_response.message, response2.base_response.message);
     }
 }
